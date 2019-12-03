@@ -1,0 +1,44 @@
+% Appendix B
+
+\chapter{Hoare Logic} % Main appendix title
+
+\label{AppendixC}
+
+\section{Program execution}
+\[
+	\{P\}Q\{R\}
+\]
+
+If the assertion \(P\) is true before the program \(Q\) executes, then the assertion \(R\) will be true after \(Q\) has executed.
+
+\subsection{Axion of Assignment}
+
+\[
+	\vdash P_0 \{ x := f \} P
+\]
+
+\begin{description}
+    \item [\(x\)] is a variable identifier;
+    \item [\(f\)] is an expression;
+    \item [\(P_0\)] is obtained from \(P\) by substituting \(x\) with \(f\);
+\end{description}
+
+\subsection{Rule of Consequence}
+\[
+	\textrm{If } \vdash \{P\}Q\{R\} \textrm{ and } \vdash R \supset S \textrm{ then } \vdash \{P\}Q\{S\}
+\]
+\[
+	\textrm{If } \vdash \{P\}Q\{R\} \textrm{ and } \vdash S \supset P \textrm{ then } \vdash \{S\}Q\{R\}
+\]
+
+This rule allows the strengthening of the precondition and/or the weakening of the postcondition. 
+
+\subsection{Rule of Composition}
+\[
+	\textrm{If } \vdash \{P\}Q_1\{R_1\} \textrm{ and } \vdash \{R_1\}Q_2\{R\} \textrm{ then } \vdash \{P\}(Q_1; Q_2)\{R\}
+\]
+
+\subsection{Rule of Iteration}
+\[
+	\textrm{If } \vdash \{P \land B\}S\{P\} \textrm{ then } \vdash \{P\}\textrm{ while } B \textrm{ do } S\{\lnot B \land P\}
+\]
