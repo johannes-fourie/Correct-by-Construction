@@ -202,4 +202,17 @@ fg=#000b47</panel_attributes>
 layer=-1</panel_attributes>
     <additional_attributes/>
   </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>310</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes>160.0;90.0;160.0;10.0;10.0;10.0</additional_attributes>
+  </element>
 </diagram>
