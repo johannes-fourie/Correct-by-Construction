@@ -5,7 +5,7 @@
 \label{Chapter 2} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 %----------------------------------------------------------------------------------------
-\section{Correct by Construction development workflow}
+\section{Correct by Construction development workflow}\label{CbyCDevWorkflow}
 
 The main properties of the CbyC development process are  \parencite{Tokeneer}:
 \begin{itemize}
@@ -276,9 +276,9 @@ If we now augment our agile scrum workflow with CbyC the process changes as show
 
 \subsubsection{Roles}
 \begin{description}
-	\item [Team Architect:] This is the person who helps the Product Owner create 
-		the formal specification. This role can be shared amongst the team members and 
-		does not have to belong to a specific person.
+	\item [Team Architect:] This person helps the Product Owner to create the formal
+		specification. This role can be shared amongst the team members and does not
+		have to belong to a specific person.
 \end{description}
 
 \subsubsection{Activities and Artifacts}
@@ -287,13 +287,16 @@ If we now augment our agile scrum workflow with CbyC the process changes as show
 		requirements into the Formal Specification. The Formal Specification is then 
 		validated. If the requirements are valid stories are created on the Product
 		Backlog.
+	\item [Sprint:] During the sprint we now incorporate the Formal Design, System
+		Test Specification, INFORMED Design, and Code Implementation in our development
+		process as described in paragraph \ref{CbyCDevWorkflow}
 \end{description}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.75]{Figures/Scrum_CbyC_workflow.pdf}
 	\decoRule
-	\caption{The scrum with CbyC workflow.}
+	\caption{The scrum workflow augmented with CbyC.}
 	\label{fig:ScrumCbyCWorkflow}
 \end{figure}
 
