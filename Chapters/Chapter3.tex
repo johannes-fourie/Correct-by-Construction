@@ -2,7 +2,7 @@
 
 \chapter{Applying the methodology} % Main chapter title
 
-\label{Chapter 3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\label{Chapter_Applying_the_methodology} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 %----------------------------------------------------------------------------------------
 \section{First iteration}
@@ -12,3 +12,35 @@
 
 %----------------------------------------------------------------------------------------
 \section{The rest of the life cycle}
+
+
+
+
+Testing is usually the main method of verification and validation. The normal testing
+method follows these steps:
+\begin{enumerate}
+	\item test individual units; 
+	\item integrate them and test the integration; 
+	\item then test the system as a whole. 
+\end{enumerate}
+This approach is inefficient because unit testing is ineffective and expensive. 
+Unit testing is ineffective because most errors are interface errors, not internal
+errors in units. Unit testing is expensive because you have to build test 
+harnesses to test units in isolation \parencite{CbyCPraxis}.
+
+A more efficient and effective approach is to incrementally built the system from
+the top down. Each build is a real (if small) system and the system can be completely 
+exercised in a real environment. This reduces the integration risk \parencite{CbyCPraxis}.
+
+\subsection{C\#}
+
+\subsubsection{Design by contract}
+CbyC program design is based on information flow expressed as code contracts 
+\parencite{CbyCMan}. C\# does not have built in code contracts any more, but it
+is very simple to implement code contracts using standard C\# language features.
+
+\subsubsection{Property based testing}
+C\# has very little static analysis tools able to mathematically prove correctness.
+As an alternative we will use property based testing to exercise the code and show 
+correctness \parencite{QuickCheck} \parencite{Hamlet94randomtesting}. We will be
+using the FsCheck framework for our property based tests \parencite{FsCheck_home}.  
