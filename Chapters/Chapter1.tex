@@ -57,7 +57,7 @@ We now describe each artefact and how it is created.
 
 \subsection{System Requirements Specification}
 
-The requirements analysis identifies the needs of the stakeholders, the desired 
+Requirements analysis identifies the needs of the stakeholders, the desired 
 behaviour of the system, and any non-behavioural system characteristics \parencite{Tokeneer}. 
 
 Requirements management extends throughout the system's development, but it is 
@@ -79,19 +79,19 @@ The System Requirements Specification is created to \parencite{Tokeneer}:
 	\item agree on the system requirements with all of the stakeholders;
 	\item document the requirements with enough procession so that the Formal 
 		Specification can be developed with minimal customer input;
-	\item clarify and document the assumptions about the behaviour the environment
-		external to the system being developed;
+	\item clarify and document the assumptions about the behaviour of the environment
+		external to the system;
 	\item identify and manage conflicting expectations between stakeholders.
 \end{itemize}
 
 \subsection{Formal Specification}
 
-The aim of the Formal Specification is to unambiguously describe what the system
+The Formal Specification unambiguously describe what the system
 will do. This is to help the developer and the client gain a common understanding
 of the system \parencite{Tokeneer}.
 
 The level of abstraction is important. The Formal Specification should not describe 
-the system's implemented. Internal details are deliberately left very abstract. 
+the system's implementation. Internal details are deliberately left abstract. 
 Interactions with the external environment are specified, but may also be abstract \parencite{Tokeneer}.
 
 The Formal Specification is written in mathematical notation with an English 
@@ -102,62 +102,58 @@ as a whole \parencite{Tokeneer}.
 The Formal Specification is created because it \parencite{Tokeneer}:
 \begin{itemize}
 	\item provides an unambiguous description of what the system does. This is
-		important for gaining client approval of the system's behaviour.
-	\item can be shown to be complete.
-	\item can be formal verified, i.e. it can be proved consistent.
+		important for gaining client approval of the system's behaviour;
+	\item can be shown to be complete;
+	\item can be formally verified and proven consistent.
 \end{itemize}
 
 \subsection{Formal Design}
 
-The aim of the formal design is to elaborate the abstract aspects of the Formal 
+Formal Design elaborates on the abstract aspects of the Formal 
 Specification to explain how the system will be implemented. The Formal Design 
 describes the system in terms of concrete state and operations using types that
-are easily implemented. The Formal Design is the source of the required functional
+are easily implementable. The Formal Design is the source of the required functional
 behaviour used during implementation  \parencite{Tokeneer}.
 
-The design is written in the same mathematical notation as the Formal Specification.
-This means that the design can be formally verified and errors can be uncovered
+The Formal Design is written in the same mathematical notation as the Formal Specification.
+This means that the Formal Design can be formally verified and errors can be uncovered
 before implementation starts \parencite{Tokeneer}.
 
-The reasons for producing a Formal Design are  \parencite{Tokeneer}:
+The Formal Design is created because it \parencite{Tokeneer}:
 \begin{itemize}
-	\item It provides an unambiguous description of how the system does what the formal specification requires.
-	\item It can be shown to be complete.
-	\item It can be formal verified, i.e. it can be proved consistent.
+	\item provides an unambiguous description of how the system will accomplish what the Formal Specification requires;
+	\item can be shown to be complete;
+	\item can be formally verified and proven consistent.
 \end{itemize}
 
 \subsection{System Test Specification}
 
-The aim of the System Test it to demonstrate that the system has the correct 
-behaviour as specified in the Formal Specification. This differs from the goals of
-acceptance testing which is designed to demonstrate that the System meets
-its requirements. System Testing aims to achieve 100\% coverage of the formal 
-specification. Thus so all possible behaviours described in the formal specification
-should be exercised at least once \parencite{Tokeneer}.
+The systems tests describe in the System Test Specification has to show that the system implements the 
+behaviours described in the Formal Specification. The system tests are more complete than 
+acceptance tests. Acceptance tests only have to show that the system functions as described in the 
+System Requirements Specification. System Testing aims to achieve 100\% coverage of the Formal 
+Specification so that all behaviours described in the Formal Specification are executed at least once \parencite{Tokeneer}.
 
 The Formal Design is a refinement of the Formal Specification. Therefore the Test
 Specification can also be written against the Formal Design if you want to tests 
 details of the design \parencite{Tokeneer}.
 
-All System tests are specified in a System Test Specification prior to their 
-execution.  The tests are specified as scenarios that might occur in typical usage
-of the system. The specification includes documentation of the expected outcome
-of the test. System test specifications also traces each test to the components
-of the Formal Specification/Design that the test attempts to exercise \parencite{Tokeneer}.
+All system tests are specified in the System Test Specification before being executed.
+The tests are specified as scenarios that can occur during typical system usage. 
+The System Test Specification documents the expected outcome of the test. 
+Each system test is linked to functionality described in the Formal Specification/Design\parencite{Tokeneer}.
 
-Where code coverage metrics need to be captured, this is be done during the
-System test. This allows us to question the use of any code that cannot be covered
+Where code coverage metrics are needed, it can be done during the System testing. 
+This allows us to question the use of any code that cannot be covered
 by a system test. If the code is valid then focused unit tests should be added to
 cover the code \parencite{Tokeneer}.
 
-The reasons for producing a System Test Specification are \parencite{Tokeneer}:
+System tests are specified because \parencite{Tokeneer}:
 \begin{itemize}
-	\item A system test focuses on testing the behaviour of the whole system against
-		the expected (specified) behaviour.
-	\item A system test is likely to find faults caused by the incorrect interaction
-		of modules within the system.
-	\item System testing complements static analysis, in that it confirms the 
-		dynamic behaviour.
+	\item system tests focuses on testing the behaviour of the whole system against
+		the expected (specified) behaviour;
+	\item system tests find faults caused by interaction of the system's modules;
+	\item system tests complement static analysis by confirming the system's dynamic behaviour.
 \end{itemize}
 
 \subsection{INFORMED Design}
@@ -165,10 +161,6 @@ CbyC design methodology is based on information flow. The information flow is
 defined using a contract-based notation. The contract-based notation is used to
 define the abstract state of the program and the information relationships across
 boundaries \parencite{CbyCMan}.
-
-Consideration of information flows at the design stage leads to programs with the
-desirable properties of abstraction, encapsulation, high cohesion and loose 
-coupling \parencite{Tokeneer}.
 
 The \textbf{IN}formation \textbf{F}low \textbf{OR}iented \textbf{ME}thod of
 object \textbf{D}esign (INFORMED) design provided an architectural framework
@@ -179,13 +171,13 @@ encapsulation, high cohesion and loose coupling \parencite{Tokeneer}.
 The INFORMED design aids maintenance and upgrades of the software by providing a
 route-map from the Formal Design to the code \parencite{Tokeneer}.
 
-The reasons for producing an INFORMED Design are \parencite{Tokeneer}:
+An INFORMED Design is created because it \parencite{Tokeneer}:
 \begin{itemize}
-	\item It focuses on the system architecture and ensures that the architecture 
-		fits the information flow model.
-	\item It provides the mapping from the Formal Design to the Code before writing
+	\item focuses on the system architecture and ensures that the architecture 
+		fits the information flow model;
+	\item provides the mapping from the Formal Design to the Code before writing
 		the code.
-	\item It complements the Formal Design without duplicating functional information.
+	\item complements the Formal Design without duplicating functional information.
 \end{itemize}
 
 \subsection{Code Implementation}
@@ -194,11 +186,11 @@ interface and the contracts governing the global state of the module. The contac
 specify how inputs are allowed to influence outputs \parencite{Tokeneer}. 
 
 After writing the specification we implement the module body. The Formal Design is
-detailed enough to make that the mapping from the design to the code simple 
+detailed enough to make the mapping from the design to the code simple 
 \parencite{Tokeneer}.
 
-Modules providing infrastructure are developed early. Module are implementation 
-in a order that allows system level functionality to be added incrementally. This
+Modules providing infrastructure are developed early. Modules are implemented 
+in an order that allows system functionality to be added incrementally. This
 means that a basic system can be built as soon as possible and functionality is 
 added in subsequent builds. This has the advantage of addressing code integration
 risks as early as possible \parencite{Tokeneer}.
