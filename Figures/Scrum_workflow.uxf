@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>10</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>970</x>
-      <y>150</y>
-      <w>30</w>
-      <h>70</h>
+      <x>370</x>
+      <y>315</y>
+      <w>15</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 bg=#c9d2ff
 fg=#000b47</panel_attributes>
-    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>900</x>
-      <y>920</y>
-      <w>120</w>
-      <h>110</h>
+      <x>395</x>
+      <y>690</y>
+      <w>45</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>
 --
-Working
-increment
-of the 
-software
+Increment
 bg=#c9d2ff
 fg=#000b47</panel_attributes>
     <additional_attributes/>
@@ -35,63 +32,67 @@ fg=#000b47</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>650</x>
-      <y>890</y>
-      <w>90</w>
-      <h>70</h>
+      <x>135</x>
+      <y>250</y>
+      <w>45</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>
 --
 Artifact
 bg=#c9d2ff
-fg=#000b47</panel_attributes>
+fg=#000b47
+group=12</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>650</x>
-      <y>980</y>
-      <w>90</w>
-      <h>50</h>
+      <x>190</x>
+      <y>260</y>
+      <w>45</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>Activity
-fg=#000b47</panel_attributes>
+fg=#000b47
+group=12</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>760</x>
-      <y>890</y>
-      <w>60</w>
-      <h>110</h>
+      <x>245</x>
+      <y>250</y>
+      <w>30</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>Role
 bg=#c9d2ff
-fg=#000b47</panel_attributes>
+fg=#000b47
+group=12</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>870</y>
-      <w>200</w>
-      <h>180</h>
+      <x>125</x>
+      <y>240</y>
+      <w>155</w>
+      <h>65</h>
     </coordinates>
-    <panel_attributes>fg=#000b47</panel_attributes>
+    <panel_attributes>fg=#000b47
+group=12</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>880</x>
-      <y>0</y>
-      <w>200</w>
-      <h>160</h>
+      <x>320</x>
+      <y>240</y>
+      <w>100</w>
+      <h>80</h>
     </coordinates>
-    <panel_attributes>Product vision
+    <panel_attributes>
 fg=#000b47
 group=11</panel_attributes>
     <additional_attributes/>
@@ -99,10 +100,10 @@ group=11</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>890</x>
-      <y>30</y>
-      <w>60</w>
-      <h>120</h>
+      <x>325</x>
+      <y>255</y>
+      <w>30</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Product
 Owner
@@ -114,10 +115,10 @@ group=11</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>970</x>
-      <y>30</y>
-      <w>90</w>
-      <h>60</h>
+      <x>365</x>
+      <y>255</y>
+      <w>45</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>
 --
@@ -131,23 +132,23 @@ group=11</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>880</x>
-      <y>200</y>
-      <w>270</w>
-      <h>270</h>
+      <x>320</x>
+      <y>350</y>
+      <w>135</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>Sprint planning
 fg=#000b47
-group=2</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>890</x>
-      <y>240</y>
-      <w>60</w>
-      <h>120</h>
+      <x>325</x>
+      <y>370</y>
+      <w>30</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Product
 Owner
@@ -159,15 +160,15 @@ group=2</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>900</x>
-      <y>390</y>
-      <w>90</w>
-      <h>60</h>
+      <x>330</x>
+      <y>445</y>
+      <w>45</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>
 --
 Product
-backlog
+Backlog
 bg=#c9d2ff
 fg=#000b47
 group=2</panel_attributes>
@@ -176,10 +177,10 @@ group=2</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>960</x>
-      <y>240</y>
-      <w>60</w>
-      <h>120</h>
+      <x>360</x>
+      <y>370</y>
+      <w>30</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Scrum
 Master
@@ -191,57 +192,58 @@ group=2</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1030</x>
-      <y>230</y>
-      <w>60</w>
-      <h>110</h>
+      <x>395</x>
+      <y>360</y>
+      <w>30</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>
 bg=#c9d2ff
 fg=#000b47
-group=2</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1040</x>
-      <y>240</y>
-      <w>60</w>
-      <h>110</h>
+      <x>400</x>
+      <y>365</y>
+      <w>30</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>
 bg=#c9d2ff
 fg=#000b47
-group=2</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1050</x>
-      <y>250</y>
-      <w>60</w>
-      <h>110</h>
+      <x>395</x>
+      <y>370</y>
+      <w>50</w>
+      <h>70</h>
     </coordinates>
-    <panel_attributes>Team
+    <panel_attributes>Development
+Team
 bg=#c9d2ff
 fg=#000b47
-group=2</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1040</x>
-      <y>390</y>
-      <w>90</w>
-      <h>60</h>
+      <x>400</x>
+      <y>445</y>
+      <w>45</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>
 --
 Sprint
-backlog
+Backlog
 bg=#c9d2ff
 fg=#000b47
 group=2</panel_attributes>
@@ -250,10 +252,10 @@ group=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>980</x>
-      <y>420</y>
-      <w>80</w>
-      <h>30</h>
+      <x>370</x>
+      <y>460</y>
+      <w>40</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 bg=#c9d2ff
@@ -264,10 +266,10 @@ group=2</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>880</x>
-      <y>510</y>
-      <w>280</w>
-      <h>540</h>
+      <x>125</x>
+      <y>335</y>
+      <w>345</w>
+      <h>410</h>
     </coordinates>
     <panel_attributes>Sprint
 fg=#000b47
@@ -277,25 +279,24 @@ fg=#000b47
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>920</x>
-      <y>700</y>
-      <w>60</w>
-      <h>120</h>
+      <x>330</x>
+      <y>520</y>
+      <w>30</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Product
 Owner
 bg=#c9d2ff
-fg=#000b47
-group=13</panel_attributes>
+fg=#000b47</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>970</x>
-      <y>540</y>
-      <w>60</w>
-      <h>110</h>
+      <x>335</x>
+      <y>655</y>
+      <w>30</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>
 bg=#c9d2ff
@@ -305,10 +306,10 @@ fg=#000b47</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>980</x>
-      <y>550</y>
-      <w>60</w>
-      <h>110</h>
+      <x>340</x>
+      <y>660</y>
+      <w>30</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>
 bg=#c9d2ff
@@ -318,12 +319,13 @@ fg=#000b47</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>990</x>
-      <y>560</y>
-      <w>60</w>
-      <h>110</h>
+      <x>335</x>
+      <y>665</y>
+      <w>50</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>Team
+    <panel_attributes>Development
+Team
 bg=#c9d2ff
 fg=#000b47</panel_attributes>
     <additional_attributes/>
@@ -331,153 +333,121 @@ fg=#000b47</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1050</x>
-      <y>530</y>
-      <w>90</w>
-      <h>60</h>
+      <x>395</x>
+      <y>650</y>
+      <w>45</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>
 --
 Sprint
-backlog
+Backlog
 bg=#c9d2ff
 fg=#000b47</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>900</x>
-      <y>540</y>
-      <w>60</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>Scrum
-Master
-bg=#c9d2ff
-fg=#000b47</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1000</x>
-      <y>460</y>
-      <w>30</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-bg=#c9d2ff
-fg=#000b47</panel_attributes>
-    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>900</x>
-      <y>670</y>
-      <w>240</w>
-      <h>230</h>
+      <x>320</x>
+      <y>505</y>
+      <w>135</w>
+      <h>115</h>
     </coordinates>
     <panel_attributes>Daily Scrum meeting
 fg=#000b47
-
-group=13</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>980</x>
-      <y>700</y>
-      <w>60</w>
-      <h>120</h>
+      <x>360</x>
+      <y>520</y>
+      <w>30</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Scrum
 Master
 bg=#c9d2ff
-fg=#000b47
-group=13</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>1060</x>
-      <y>700</y>
-      <w>60</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>
-bg=#c9d2ff
-fg=#000b47
-group=13</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>1070</x>
-      <y>710</y>
-      <w>60</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>Team
-bg=#c9d2ff
-fg=#000b47
-group=13</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>1050</x>
-      <y>690</y>
-      <w>60</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>
-bg=#c9d2ff
-fg=#000b47
-group=13</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLPackage</id>
-    <coordinates>
-      <x>920</x>
-      <y>820</y>
-      <w>90</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>
---
-Sprint
-backlog
-bg=#c9d2ff
-fg=#000b47
-group=13</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>490</x>
-      <y>510</y>
-      <w>340</w>
-      <h>310</h>
-    </coordinates>
-    <panel_attributes>Sprint review
 fg=#000b47</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>500</x>
-      <y>690</y>
-      <w>60</w>
-      <h>120</h>
+      <x>395</x>
+      <y>515</y>
+      <w>30</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>390</x>
+      <y>520</y>
+      <w>50</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Development
+Team
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>390</x>
+      <y>510</y>
+      <w>30</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>330</x>
+      <y>580</y>
+      <w>45</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>
+--
+Sprint
+Backlog
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>140</x>
+      <y>575</y>
+      <w>155</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>Sprint Review
+fg=#000b47</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>145</x>
+      <y>665</y>
+      <w>30</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Product
 Owner
@@ -488,15 +458,15 @@ fg=#000b47</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>690</x>
-      <y>660</y>
-      <w>90</w>
-      <h>60</h>
+      <x>240</x>
+      <y>625</y>
+      <w>45</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>
 --
 Product
-backlog
+Backlog
 bg=#c9d2ff
 fg=#000b47</panel_attributes>
     <additional_attributes/>
@@ -504,10 +474,10 @@ fg=#000b47</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>500</x>
-      <y>550</y>
-      <w>60</w>
-      <h>120</h>
+      <x>145</x>
+      <y>600</y>
+      <w>30</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Scrum
 Master
@@ -518,10 +488,10 @@ fg=#000b47</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>580</x>
-      <y>550</y>
-      <w>60</w>
-      <h>110</h>
+      <x>185</x>
+      <y>595</y>
+      <w>30</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>
 bg=#c9d2ff
@@ -531,12 +501,13 @@ fg=#000b47</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>590</x>
-      <y>560</y>
-      <w>60</w>
-      <h>110</h>
+      <x>180</x>
+      <y>600</y>
+      <w>50</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>Team
+    <panel_attributes>Development
+Team
 bg=#c9d2ff
 fg=#000b47</panel_attributes>
     <additional_attributes/>
@@ -544,15 +515,15 @@ fg=#000b47</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>690</x>
-      <y>740</y>
-      <w>90</w>
-      <h>60</h>
+      <x>240</x>
+      <y>665</y>
+      <w>45</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>
 --
 Sprint
-backlog
+Backlog
 bg=#c9d2ff
 fg=#000b47</panel_attributes>
     <additional_attributes/>
@@ -560,43 +531,12 @@ fg=#000b47</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>570</x>
-      <y>540</y>
-      <w>60</w>
-      <h>110</h>
+      <x>180</x>
+      <y>590</y>
+      <w>30</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>
-bg=#c9d2ff
-fg=#000b47</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>820</x>
-      <y>640</y>
-      <w>80</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-bg=#c9d2ff
-fg=#000b47</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLPackage</id>
-    <coordinates>
-      <x>690</x>
-      <y>530</y>
-      <w>120</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>
---
-Working
-increment
-of the 
-software
 bg=#c9d2ff
 fg=#000b47</panel_attributes>
     <additional_attributes/>
@@ -604,95 +544,90 @@ fg=#000b47</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>590</x>
-      <y>300</y>
-      <w>240</w>
-      <h>170</h>
+      <x>165</x>
+      <y>470</y>
+      <w>130</w>
+      <h>85</h>
     </coordinates>
-    <panel_attributes>Sprint review
-fg=#000b47
-group=10</panel_attributes>
+    <panel_attributes>Sprint Retrospective
+fg=#000b47</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>600</x>
-      <y>340</y>
-      <w>60</w>
-      <h>120</h>
+      <x>170</x>
+      <y>490</y>
+      <w>30</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Product
 Owner
 bg=#c9d2ff
-fg=#000b47
-group=10</panel_attributes>
+fg=#000b47</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>670</x>
-      <y>340</y>
-      <w>60</w>
-      <h>120</h>
+      <x>210</x>
+      <y>490</y>
+      <w>30</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Scrum
 Master
 bg=#c9d2ff
-fg=#000b47
-group=10</panel_attributes>
+fg=#000b47</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>760</x>
-      <y>350</y>
-      <w>60</w>
-      <h>110</h>
+      <x>245</x>
+      <y>490</y>
+      <w>50</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>Team
+    <panel_attributes>Development
+Team
 bg=#c9d2ff
-fg=#000b47
-group=10</panel_attributes>
+fg=#000b47</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>740</x>
-      <y>330</y>
-      <w>60</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>
-bg=#c9d2ff
-fg=#000b47
-group=10</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>750</x>
-      <y>340</y>
-      <w>60</w>
-      <h>110</h>
+      <x>245</x>
+      <y>480</y>
+      <w>30</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>
 bg=#c9d2ff
-fg=#000b47
-group=10</panel_attributes>
+fg=#000b47</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>250</x>
+      <y>485</y>
+      <w>30</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>700</x>
-      <y>460</y>
-      <w>30</w>
-      <h>70</h>
+      <x>230</x>
+      <y>550</y>
+      <w>15</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 bg=#c9d2ff
@@ -702,14 +637,133 @@ fg=#000b47</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>820</x>
-      <y>380</y>
-      <w>80</w>
-      <h>30</h>
+      <x>230</x>
+      <y>440</y>
+      <w>100</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 bg=#c9d2ff
 fg=#000b47</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>180.0;10.0;10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>405</x>
+      <y>370</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>
+bg=#c9d2ff
+fg=#000b47
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>320</x>
+      <y>640</y>
+      <w>135</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Development Work
+fg=#000b47</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>365</x>
+      <y>480</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>615</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>615</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>670</y>
+      <w>40</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>240</x>
+      <y>585</y>
+      <w>45</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>
+--
+Increment
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>365</x>
+      <y>210</y>
+      <w>10</w>
+      <h>10</h>
+    </coordinates>
+    <panel_attributes>type=initial
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>365</x>
+      <y>215</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+bg=#c9d2ff
+fg=#000b47</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

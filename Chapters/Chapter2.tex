@@ -1,20 +1,18 @@
 % Chapter Template
 
-\chapter{Agile and Correct by Construction} % Main chapter title
+\chapter{Agile using Scrum} % Main chapter title
 
-\label{Chapter_Agile_and_Correct_by_Construction} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\label{Chapter_Agile_and_Scrum} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 %----------------------------------------------------------------------------------------
 
+\section{Overview}
 
-\section{Agile Software Development}
-
-\subsection{Manifesto for Agile Software Development}
-
-The manifesto sets out the overarching principles of agile software development \parencite{Beck2001ManifestoFA}:
+The Manifesto for Agile Software Development sets out the overarching principles
+of agile software development \parencite{Beck2001ManifestoFA}:
 
 \begin{displayquote}
-We are uncovering better ways of developing software by doing it and helping 
+``We are uncovering better ways of developing software by doing it and helping 
 others do it. Through this work we have come to value:
 
 \begin{itemize}
@@ -25,111 +23,139 @@ others do it. Through this work we have come to value:
 \end{itemize}
 
 That is, while there is value in the items on the right, we value the items on
-the left more.
+the left more.''
 \end{displayquote}
 
-\subsection{Agile Software Development using Scrum}
+This is further expanded on by the Twelve Principles of Agile Software
+\parencite{Beck2001ManifestoFA}:
+
+\begin{displayquote}
+``We follow these principles:
+
+\begin{enumerate}
+	\item Our highest priority is to satisfy the customer
+		through early and continuous delivery
+		of valuable software.
+
+	\item Welcome changing requirements, even late in
+		development. Agile processes harness change for
+		the customer's competitive advantage.
+
+	\item Deliver working software frequently, from a
+		couple of weeks to a couple of months, with a
+		preference to the shorter timescale.
+
+	\item Business people and developers must work
+		together daily throughout the project.
+
+	\item Build projects around motivated individuals.
+		Give them the environment and support they need,
+		and trust them to get the job done.
+
+	\item The most efficient and effective method of
+		conveying information to and within a development
+		team is face-to-face conversation.
+
+	\item Working software is the primary measure of progress.
+
+	\item Agile processes promote sustainable development.
+		The sponsors, developers, and users should be able
+		to maintain a constant pace indefinitely.
+
+	\item Continuous attention to technical excellence
+		and good design enhances agility.
+
+	\item Simplicity--the art of maximizing the amount
+		of work not done--is essential.
+
+	\item The best architectures, requirements, and designs
+		emerge from self-organizing teams.
+
+	\item At regular intervals, the team reflects on how
+		to become more effective, then tunes and adjusts
+		its behaviour accordingly.''
+\end{enumerate}
+
+\end{displayquote}
+
 Scrum is an agile project management methodology. It focuses on short feedback
-loops all development process. The client is involved in all iterations of the process
-ensuring that the completed project meets the client's needs and expectations \parencite{ScrumGoesFormal}.
+loops. Scrum is described in terms of roles, events, and artefacts. The Scrum 
+process workflow is shown in Figure \ref{fig:ScrumWorkflow}.
 
-\subsubsection{Scrum roles}
-There are three roles in Scrum \parencite{ScrumGoesFormal}:
-\begin{description}
-	\item [Product Owner:] This person represents the customer’s interest, and 
-		determines the goal of each iteration. It is the product owner's responsibility
-		to prioritise the different tasks ensuring that the most important functionality
-		is implemented first.
-	\item [Scrum Master:] It is the Scrum Master's responsibility to facilitate the Scrum 
-		process and protect the agile principles. He also needs to protect the team by
-		removing any impediments encountered by the team, ensuring that the team is not
-		distracted from the task at hand.
-	\item [Team:] A team consists of five to nine people working together to create
-		a functional system which satisfies the user needs. The team consists of people
-		with a broad set of competences so that the team is self-organised and contained.
-\end{description}
+\section{Scrum roles}
+The scrum team consists of a Product Owner, the Development Team, and a Scrum Master.
+The scrum team is self-organizing and cross-functional. The scrum team has all the skills 
+necessary to complete assigned tasks without outside assistance \parencite{TheScrumGuide}.
 
-\subsubsection{Activities and Artifacts}
-Scrum has several activities, that describe the development workflow, and artifacts,
-that are produced by the process \parencite{ScrumGoesFormal}:
-\begin{description}
-	\item [Product vision:] This is the initial idea phase. The vision of the 
-		product is defined during this process.
-	\item [Product backlog:] This is a prioritised list of artifacts that are needed
-		in the product. The artifacts are described as user stories, the story describes
-		how we are adding value for the user.
-	\item [Sprint:] This is the development iteration. Sprints are time boxed between
-		 two to six weeks.
-	\item [Sprint planning:] The first day of each sprint is used to plan what is
-		going to be done during the sprint.
-	\item [Sprint backlog:] These are the stories, from the product backlog the team
-		has committed to implementing in the sprint.
-	\item [Daily Scrum meeting:] This is a short, 15 minutes, daily meeting used to plan
-		the days work and checking on the state of the stories in the sprint.
-	\item [Sprint review:] The meeting is held at the end of the sprint to show the 
-		product owner the work that has been completed during the sprint.
-	\item [Sprint retrospective:] This meeting is held after the sprint review. The 
-		focus of the meeting is not on the work completed during the. The purpose
-		of the meeting is to discuss the people, relationships, processes, and tools 
-		in order to improve the team's effectiveness.
-\end{description}
+\subsection{Product Owner}
+The Product Owner is one person. The Product Owner may represent a committee of people, 
+but the Product Owner must only be one person. The Product Owner is responsible 
+for maximizing the value of the product resulting from the work done by the 
+Development Team. The product owner is the only one responsible for managing the
+Product Backlog. The rest of the team may help manage the backlog but the 
+Product Owner is the only accountable person  \parencite{TheScrumGuide}.
+
+\subsection{Development Team}
+The Development Team is a small team consisting of between three and nine 
+professional people. The Development Team members do the work necessary to 
+deliver a potentially releasable increment of the product. A completed potentially
+releasable increment of the product is required at the Sprint Review  \parencite{TheScrumGuide}.
+
+\subsection{Scrum Master}
+The Scrum Master is the servant-leader of the Scrum Team. The Scrum Master 
+facilitates the interaction of outsiders with the team. The Scrum Master steers 
+the interaction between team members to maximize the value create by the 
+Scrum Team  \parencite{TheScrumGuide}.
+
+\section{Scrum Events}
+Scrum Events are used the create a regular rhythm and minimize the need for 
+irregular disrupting causing meetings  \parencite{TheScrumGuide}.
+
+\subsection{Sprint}
+The Sprint is the core of Scrum. A Sprint is a period, no longer than a month, in which 
+a usable and potentially releasable increment of the product is created. The length
+of the Sprint does not change throughout the development process. The next Sprint 
+starts directly after the previous Sprint finishes. The sprint contains and consists of the 
+Sprint Planning, Daily Scrum, the development work, the Sprint Review and the 
+Sprint Retrospective \parencite{TheScrumGuide}.
+
+\subsection{Daily Scrum}
+The Daily Scrum is a 15 minute event for the Development Team. During the Daily 
+Scrum the Development Team plans the work for the new 24 hours that is needed
+to achieve the Sprint Goal  \parencite{TheScrumGuide}.
+
+\subsection{Sprint Review}
+A Sprint Review is help at the end of the Sprint to inspect the Product Increment 
+and adapt the Product Backlog  \parencite{TheScrumGuide}.
+
+\subsection{Sprint Retrospective}
+The Sprint Retrospective is help at the end of the Sprint to allow the Scrum Team
+an opportunity for introspection and to create a plan for improvements that can be 
+done in the next Sprint  \parencite{TheScrumGuide}.
+
+\section{Scrum Artefacts}
+Scrum Artifacts represent work done or provide information about the development 
+process in order to provide transparency  \parencite{TheScrumGuide}.
+
+\subsection{Product Backlog}
+The Product Backlog is an ordered list of every know requirement of the product.
+The Product Backlog is always evolving as new requirement are discovered. It is 
+the only source of required changes to the product. The Product owner is 
+responsible for the Product Backlog, this includes its content, availability, 
+and ordering \parencite{TheScrumGuide}.
+
+\subsection{Sprint Backlog}
+The Sprint Backlog is the set of Product Backlog items selected for the Sprint
+and a plan for delivering the product Increment, realizing the Sprint Goal \parencite{TheScrumGuide}.
+
+\subsection{Increment}
+The Increment is the sum of all the Product Backlog items completed during a 
+Sprint and the value of the increments of all previous Sprints \parencite{TheScrumGuide}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.75]{Figures/Scrum_workflow.pdf}
 	\decoRule
-	\caption{The scrum workflow.}
+	\caption{The Scrum workflow.}
 	\label{fig:ScrumWorkflow}
 \end{figure}
-
-\section{Using CbyC in Agile Scrum}
-
-The strived for characteristic of agile software development is the ability to 
-react to change. With scrum we will have to implement the change in order to test
-it. If we evaluate this against the Agile manifesto:
-\begin{description}
-	\item [Responding to change:]  In order to evaluate a change: a story has to be
-		create, and the story has to be refined and sized. Then, depending on the 
-		priority, existing work has to be moved to make resources available to implement
-		the change. 
-	\item [Working software:] We have to implement the requested change in order to
-		validate it. If the change does not work we might end up with invalid or
-		non-functional software.
-	\item [Customer collaboration] For a change to be actioned the team will reason
-		through it on a whiteboard. This reasoning is based on opinion and results in
-		arguments that cannot be resolved without implementing the change.
-\end{description}
-
-If we now augment our agile scrum workflow with CbyC the process changes as shown in  Figure \ref{fig:ScrumCbyCWorkflow}.
-
-\subsubsection{Roles}
-\begin{description}
-	\item [Team Architect:] This person helps the Product Owner to create the formal
-		specification. This role can be shared amongst the team members and does not
-		have to belong to a specific person.
-\end{description}
-
-\subsubsection{Activities and Artifacts}
-\begin{description}
-	\item [Product Vision:] Here the Team Architect incorporates the Product Owner's
-		requirements into the Formal Specification. The Formal Specification is then 
-		validated. If the requirements are valid stories are created on the Product
-		Backlog.
-	\item [Sprint:] During the sprint we now incorporate the Formal Design, System
-		Test Specification, INFORMED Design, and Code Implementation in our development
-		process as described in paragraph \ref{CbyCDevWorkflow}
-\end{description}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.75]{Figures/Scrum_CbyC_workflow.pdf}
-	\decoRule
-	\caption{The scrum workflow augmented with CbyC.}
-	\label{fig:ScrumCbyCWorkflow}
-\end{figure}
-
-
-
-
-
-
