@@ -4,18 +4,26 @@
 
 \label{Chapter_Applying_the_methodology} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-%----------------------------------------------------------------------------------------
-\section{First iteration}
+We have now described the process we are going to follow. In this chapter we
+describing the technique we are going to use the create the artifacts.
+
+To create all the artifacts we need a mathematical specification language
+and a programming language.
 
 %----------------------------------------------------------------------------------------
-\section{Second iteration}
+\section{Mathematical Specification Language (TLA\textsuperscript{+})}
 
 %----------------------------------------------------------------------------------------
-\section{The rest of the life cycle}
+\section{Programming Language (C\#)}
+
+\subsection{Code Contracts}
+
+CbyC program design is based on information flow expressed as code contracts 
+\parencite{CbyCMan}. C\# does not have built in code contracts any more, but it
+is very simple to implement code contracts using standard C\# language features.
 
 
-
-
+\subsection{Verification}
 Testing is usually the main method of verification and validation. The normal testing
 method follows these steps:
 \begin{enumerate}
@@ -32,15 +40,8 @@ A more efficient and effective approach is to incrementally built the system fro
 the top down. Each build is a real (if small) system and the system can be completely 
 exercised in a real environment. This reduces the integration risk \parencite{CbyCPraxis}.
 
-\subsection{C\#}
-
-\subsubsection{Design by contract}
-CbyC program design is based on information flow expressed as code contracts 
-\parencite{CbyCMan}. C\# does not have built in code contracts any more, but it
-is very simple to implement code contracts using standard C\# language features.
-
 \subsubsection{Property based testing}
 C\# has very little static analysis tools able to mathematically prove correctness.
 As an alternative we will use property based testing to exercise the code and show 
 correctness \parencite{QuickCheck} \parencite{Hamlet94randomtesting}. We will be
-using the FsCheck framework for our property based tests \parencite{FsCheck_home}.  
+using the FsCheck framework for our property based tests \parencite{FsCheck_home}.
