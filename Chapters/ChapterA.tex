@@ -11,11 +11,11 @@ To evaluate requested changes the changes have to be implemented.
 If we evaluate this against the Agile manifesto:
 \begin{description}
 	\item [Responding to change:]  In order to evaluate a change: a story has to be
-		create, and the story has to be refined and sized. Then, depending on the 
+		created, and the story has to be refined and sized. Then, depending on the 
 		priority, existing work has to be moved to make resources available to implement
 		the change. 
 	\item [Working software:] We have to implement the requested change in order to
-		validate it. If the change does not work we might end up with invalid or
+		validate it. If the requested change does not work we might end up with invalid or
 		non-functional software. The changes then has to be rolled back.
 	\item [Customer collaboration] For a change to be actioned the team will reason
 		through it on a whiteboard. This reasoning is based on opinion and results in
@@ -26,28 +26,30 @@ If we evaluate this against the Agile manifesto:
 
 The CbyC process is designed to validate changes at every step. By augmenting
 Scrum with CbyC we reduce the need to implement a change before it can be validated.
-Figure \ref{fig:ScrumCbyCWorkflow} shows how the Scrum process can be augmented
-with CbyC.
+Thereby streamlining the development process and reducing the risk of having broken or invalid software.
+Figure \ref{fig:ScrumCbyCWorkflow} shows how the Scrum process can be augmented with CbyC.
 
 \subsection{Roles}
 
 \subsubsection{Team Architect}
-We add the Team Architect to help the Product Owner create the formal specification.
+We add the Team Architect to help the Product Owner create the Formal Specification.
 This role can be shared amongst the team members and does not have to belong to a
 specific person.
 
 \subsection{Events}
 
 \subsubsection{Product Planning}
-In Scrum the Product Owner can create the Product Backlog with out assistance
+In Scrum the Product Owner can create the Product Backlog without assistance
 from the rest of the team. The Product Owner can still create the 
 System Requirements Specification on his own, but the Formal Specification is
 written in a mathematical language and the Product Owner might need help writing
 it. To facilitate the writing of the System Requirements Specification and the 
-Formal Specification we add the Product Planning events. During the Product Planning 
+Formal Specification we add the Product Planning event. During the Product Planning 
 event the Team Architect helps the Product Owner write the Formal Specification.
 Once a change has been added to the Formal Specification and verified, user 
-stories can be added to the Product Backlog.
+stories can be added to the Product Backlog. Requirements should be traceable 
+through the System Requirements Specification and Formal Specification to the story
+in the Product Backlog.
 
 \subsubsection{Sprint}
 To the normal Sprint development work we add, from CbyC, the Formal Specification,
@@ -71,7 +73,7 @@ We add the artifacts as describe by CbyC:
 \end{enumerate}  
 
 \subsubsection{Increment}
-We create the Increment as described by CbyC Code Implementation.
+We create the Increment as described by CbyC Code Artifact.
 
 
 \begin{figure}[H]

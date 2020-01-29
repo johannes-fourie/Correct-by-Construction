@@ -8,14 +8,14 @@
 \section{Overview}
 
 The CbyC software development methodology proposes to limit software 
-defects by:  
+defects by \parencite{CbyCMan}:  
 \begin{enumerate}
 	\item making it difficult to introduce errors, and
 	\item detecting and removing errors as early as possible.
 \end{enumerate}
 
 CbyC technique emphasises the use of mathematically rigorous tools. CbyC proposes
-using mathematical formal language to define the specification and high-level design
+using mathematically formal language to define the specification and high-level design
 of a system. This provides a precise description of the system's behaviour and a
 precise model of its characteristics. Using a mathematical language also allows
 the use of automated tools to verify the specification and design \parencite{CbyCMan}.
@@ -41,11 +41,11 @@ The CbyC process is described in terms of the artefacts it produces (Figure \ref
 	\item Code;
 \end{itemize}
 
-Using the CbyC process every process artefact can be validated.The semantic gap 
+Using the CbyC process every process artefact can be validated. The semantic gap 
 between process artefacts are kept small. This makes it possible to show that later 
 process artefacts conform to earlier process artefacts \parencite{Tokeneer}.
 
-We now describe each artefact and how it is created.
+Here follows a description of each artefacts and how it is created.
 
 \begin{figure}[H]
 	\centering
@@ -63,10 +63,10 @@ behaviour of the system, and any non-behavioural system characteristics \parenci
 Requirements management extends throughout the system's development, but it is 
 most significant at the beginning, where it is used to identify \parencite{Tokeneer}:
 \begin{itemize}
-	\item the stakeholders, who have an interest in the development and use of the system;
-	\item the system boundary, to clarify the scope of the project and the interfaces to external systems;
-	\item the expected use, in terms of interactions between users and the system;
-	\item system properties, such as security properties, performance properties, etc.
+	\item the stakeholders (who have an interest in the development and use of the system);
+	\item the system boundary (to clarify the scope of the project and the interfaces to external systems);
+	\item the expected use (in terms of interactions between users and the system);
+	\item system properties (such as security properties, performance properties, etc).
 \end{itemize}
 
 Each requirement should be traceable through every process artefact \parencite{Tokeneer}.
@@ -86,8 +86,8 @@ The System Requirements Specification is created to \parencite{Tokeneer}:
 
 \subsection{Formal Specification}
 
-The Formal Specification unambiguously describe what the system
-will do. This is to help the developer and the client gain a common understanding
+The Formal Specification unambiguously describes what the system
+will do. This helps the developer and client gain a common understanding
 of the system \parencite{Tokeneer}.
 
 The level of abstraction is important. The Formal Specification should not describe 
@@ -102,14 +102,14 @@ as a whole \parencite{Tokeneer}.
 The Formal Specification is created because it \parencite{Tokeneer}:
 \begin{itemize}
 	\item provides an unambiguous description of what the system does. This is
-		important for gaining client approval of the system's behaviour;
+		important for client approval of the system's behaviour;
 	\item can be shown to be complete;
 	\item can be formally verified and proven consistent.
 \end{itemize}
 
 \subsection{Formal Design}
 
-Formal Design elaborates on the abstract aspects of the Formal 
+The Formal Design elaborates on the abstract aspects of the Formal 
 Specification to explain how the system will be implemented. The Formal Design 
 describes the system in terms of concrete state and operations using types that
 are easily implementable. The Formal Design is the source of the required functional
@@ -128,8 +128,8 @@ The Formal Design is created because it \parencite{Tokeneer}:
 
 \subsection{System Test Specification}
 
-The systems tests describe in the System Test Specification has to show that the system implements the 
-behaviours described in the Formal Specification. The system tests are more complete than 
+The systems tests described in the System Test Specification has to show that the system implements the 
+behaviours described in the Formal Specification. System tests are more complete than 
 acceptance tests. Acceptance tests only have to show that the system functions as described in the 
 System Requirements Specification. System Testing aims to achieve 100\% coverage of the Formal 
 Specification so that all behaviours described in the Formal Specification are executed at least once \parencite{Tokeneer}.
@@ -145,8 +145,7 @@ Each system test is linked to functionality described in the Formal Specificatio
 
 Where code coverage metrics are needed, it can be done during the System testing. 
 This allows us to question the use of any code that cannot be covered
-by a system test. If the code is valid then focused unit tests should be added to
-cover the code \parencite{Tokeneer}.
+by a system test \parencite{Tokeneer}.
 
 System tests are specified because \parencite{Tokeneer}:
 \begin{itemize}
@@ -158,13 +157,13 @@ System tests are specified because \parencite{Tokeneer}:
 
 \subsection{INFORMED Design}
 CbyC design methodology is based on information flow. The information flow is 
-defined using a contract-based notation. The contract-based notation is used to
+defined using contract-based notation. The contract-based notation is used to
 define the abstract state of the program and the information relationships across
 boundaries \parencite{CbyCMan}.
 
 The \textbf{IN}formation \textbf{F}low \textbf{OR}iented \textbf{ME}thod of
 object \textbf{D}esign (INFORMED) design provided an architectural framework
-in which to perform the implementation. Consideration of information flows at the
+in which to perform the implementation. Consideration of information flow at the
 design stage results in programs with the desirable properties of abstraction, 
 encapsulation, high cohesion and loose coupling \parencite{Tokeneer}.
 
@@ -180,7 +179,7 @@ An INFORMED Design is created because it \parencite{Tokeneer}:
 	\item complements the Formal Design without duplicating functional information.
 \end{itemize}
 
-\subsection{Code Implementation}
+\subsection{Code}
 We start by writing the module specification. The specification is the public 
 interface and the contracts governing the global state of the module. The contacts
 specify how inputs are allowed to influence outputs \parencite{Tokeneer}. 
@@ -196,5 +195,5 @@ added in subsequent builds. This has the advantage of addressing code integratio
 risks as early as possible \parencite{Tokeneer}.
 
 By using languages that allows static analysis we can evaluate the code 
-contracts at build time. Thus if the code builds it is correct as specified by the
+contracts at build time, if the code builds, it is correct as specified by the
 contracts \parencite{Tokeneer}.
