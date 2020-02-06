@@ -1,6 +1,6 @@
 % Chapter Template
 
-\chapter{Applying the methodology} % Main chapter title
+\chapter{Correct by Construction Agile Scrum Technique} % Main chapter title
 
 \label{Chapter_Applying_the_methodology} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
@@ -10,9 +10,8 @@ describing the technique we are going to use the create the artifacts.
 To create all the artifacts we need a mathematical specification language
 and a programming language.
 
-%----------------------------------------------------------------------------------------
-\section{Technology}
-\subsection{Mathematical Specification Language (TLA\textsuperscript{+})}
+\section{Mathematical Specification Language (TLA\textsuperscript{+})}
+
 The Formal Specification and Formal Design has to be written in a formal
 mathematical language. CbyC suggests using Z  \parencite{CbyCPraxis}. 
 I hound that Z has very little tool support and an inactive community. I decided
@@ -20,34 +19,35 @@ to use TLA\textsuperscript{+}.  TLA\textsuperscript{+} has frequently updated
 tooling and an active community. To get started with TLA\textsuperscript{+}
 visit the ``Learning TLA\textsuperscript{+}'' website \parencite{LearningTLA}.
 
-\subsection{Programming Language (C\#)}
+\section{Programming Language (C\#)}
+
+CbyC suggests using the Ada SPARK programming language because it has native
+support for code contracts and can verify the code using static analysis \parencite{CbyCPraxis}.
+Very little line of business software is built using Ada. To make this more relevant 
+to the my work I decided to use C\#. The problem with C\# is that is has no native
+support for code contracts and also does not have sufficient static analysis tools 
+capable of verifying code correct. This means that we will have to find workarounds
+for these short comings. 
 
 \subsection{Code Contracts}
 
 CbyC program design is based on information flow expressed as code contracts 
-\parencite{CbyCMan}. C\# does not have built in code contracts any more, but it
+\parencite{CbyCMan}. C\# does not have native code contracts any more, but it
 is very simple to implement code contracts using standard C\# language features.
 
-
 \subsection{Verification}
-Testing is usually the main method of verification and validation. The normal testing
-method follows these steps:
-\begin{enumerate}
-	\item test individual units; 
-	\item integrate them and test the integration; 
-	\item then test the system as a whole. 
-\end{enumerate}
-This approach is inefficient because unit testing is ineffective and expensive. 
+Testing is usually the main method of verification and validation.  Unit testing
+is inefficient because unit testing is ineffective and expensive. 
 Unit testing is ineffective because most errors are interface errors, not internal
 errors in units. Unit testing is expensive because you have to build test 
 harnesses to test units in isolation \parencite{CbyCPraxis}.
 
-A more efficient and effective approach is to incrementally built the system from
-the top down. Each build is a real (if small) system and the system can be completely 
-exercised in a real environment. This reduces the integration risk \parencite{CbyCPraxis}.
+Instead of testing the unit correctness by unit testing we just want to verify 
+that the contracts are valid. When we know the contracts are valid we can 
+create tests that test the whole system.
 
-\subsubsection{Property based testing}
-C\# has very little static analysis tools able to mathematically prove correctness.
+To verify that the contracts are valid we want to execute the code covered by the
+contract with all possible inputs. This is might not always be practical. 
 As an alternative we will use property based testing to exercise the code and show 
 correctness \parencite{QuickCheck} \parencite{Hamlet94randomtesting}. We will be
 using the FsCheck framework for our property based tests \parencite{FsCheck_home}.

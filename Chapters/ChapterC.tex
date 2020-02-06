@@ -1,0 +1,33 @@
+% Chapter Template
+
+\chapter{C\#} % Main chapter title
+
+\label{csharp} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+\section{Code contracts}
+
+Code contracts are an application of Hoare logic. Using Hoare logic
+we can show that a program correctly implements a specification if, given a set of 
+preconditions derived from the specification, the program never violates a set of
+post conditions derived from the specification. We use the Hoare triple to 
+represent the contract \parencite{BasisForProgramming}:
+
+\[
+	\{P\}Q\{R\}
+\]
+
+where:
+\begin{description}
+	\item [$P$] are the preconditions;
+	\item [$Q$] is the program;
+	\item [$R$] are the postconditions.
+\end{description}
+
+
+\section{Verification}
+
+\subsection{Property Based Testing}
+
+\subsection{FsCheck}
+
+
