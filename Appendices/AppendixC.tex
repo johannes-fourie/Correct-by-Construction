@@ -1,17 +1,19 @@
 % Appendix B
 
-\chapter{Hoare Logic} % Main appendix title
+\chapter{Code Contracts} % Main appendix title
 
 \label{AppendixC}
 
-\section{Program execution}
+\section{Hoare logic}
+
+\subsection{Program execution}
 \[
 	\{P\}Q\{R\}
 \]
 
 If the assertion \(P\) is true before the program \(Q\) executes, then the assertion \(R\) will be true after \(Q\) has executed.
 
-\subsection{Axion of Assignment}
+\subsubsection{Axion of Assignment}
 
 \[
 	\vdash P_0 \{ x := f \} P
@@ -23,7 +25,7 @@ If the assertion \(P\) is true before the program \(Q\) executes, then the asser
     \item [\(P_0\)] is obtained from \(P\) by substituting \(x\) with \(f\);
 \end{description}
 
-\subsection{Rule of Consequence}
+\subsubsection{Rule of Consequence}
 \[
 	\textrm{If } \vdash \{P\}Q\{R\} \textrm{ and } \vdash R \supset S \textrm{ then } \vdash \{P\}Q\{S\}
 \]
@@ -33,12 +35,135 @@ If the assertion \(P\) is true before the program \(Q\) executes, then the asser
 
 This rule allows the strengthening of the precondition and/or the weakening of the postcondition. 
 
-\subsection{Rule of Composition}
+\subsubsection{Rule of Composition}
 \[
 	\textrm{If } \vdash \{P\}Q_1\{R_1\} \textrm{ and } \vdash \{R_1\}Q_2\{R\} \textrm{ then } \vdash \{P\}(Q_1; Q_2)\{R\}
 \]
 
-\subsection{Rule of Iteration}
+\subsubsection{Rule of Iteration}
 \[
 	\textrm{If } \vdash \{P \land B\}S\{P\} \textrm{ then } \vdash \{P\}\textrm{ while } B \textrm{ do } S\{\lnot B \land P\}
 \]
+
+\section{C\# code contract}
+We implement the contract condition tests using the below listed helper methods 
+and classes.
+
+\lstset{style=sharpc, caption={Implementing code contracts using helper methods and classes.}}
+\begin{lstlisting}[frame=single]
+public static class Contract
+{
+    public static Requirer Require(bool condition, string message)
+    {
+        if (!condition)
+            throw new ConstactRequireException(message);
+        else
+            return new Requirer();
+    }
+
+    public static Ensurer Ensure(bool condition, string message)
+    {
+        if (!condition)
+            throw new ConstactEnsureException(message);
+        else
+            return new Ensurer();
+    }
+
+    public static Invarianter Invariant(
+	bool condition, string message)
+    {
+        if (!condition)
+            throw new ConstactInvariantException(message);
+        else
+            return new Invarianter();
+    }
+}
+
+public class Invarianter
+{
+    public Invarianter Invariant(bool condition, string message)
+    {
+        if (!condition)
+            throw new ConstactEnsureException(message);
+        else
+            return this;
+    }
+}
+
+public class Ensurer
+{
+    public Ensurer Ensure(bool condition, string message)
+    {
+        if (!condition)
+            throw new ConstactEnsureException(message);
+        else
+            return this;
+    }
+}
+
+public class Requirer
+{
+    public Requirer Require(bool condition, string message)
+    {
+        if (!condition)
+            throw new ConstactRequireException(message);
+        else
+            return this;
+    }
+}
+\end{lstlisting}
+
+We can now write contracts using the helper methods and classes. 
+
+Require conditions is the first code in the method. If we need to compare pre and 
+post execution values we can create an anonymous object to store the old values. 
+Only store value types and not reference types because the referenced values can
+change and will not be preserved by the old object.
+
+The class invariant conditions are listed in a method so that they can be executed
+in all methods. 
+
+Ensure and class invariant conditions are the last code in the method before it 
+returns. 
+
+\lstset{style=sharpc, caption={Writing  code contracts using helper methods and classes.}}
+\begin{lstlisting}[frame=single]
+public class Account
+{
+    private int _limit;
+
+    public int Limit
+    {
+        get => _limit;
+        set
+        {
+            Require(value > 0, "Limit must not be 0.");
+            _limit = value;
+            ClassInvariant();
+        }
+    }
+
+    public int Total { get; private set; }
+
+    public int Add(int value, int discount)
+    {
+        Require(value >= 0, "Value must be positive.")
+            .Require(
+                discount >= 0 && discount <= 50, 
+                "Discount must be positive and not more than 50%");
+        var old = new { Total };
+
+        // method logic
+
+        Ensure(Total > old.Total, "The total will not decrease.");
+        ClassInvariant();
+        return discountedValue;
+    }
+    
+    private void ClassInvariant()
+    {
+        Invariant(Total >= 0, "The total will not be negative.")
+            .Invariant(Limit > 0, "Limit will not be 0.");
+    }
+}
+\end{lstlisting}

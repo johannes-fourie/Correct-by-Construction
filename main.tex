@@ -47,6 +47,8 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[inline]{enumitem}
 \usepackage[backend=bibtex,citestyle=numeric,style=numeric,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 
+\lstdefinestyle{sharpc}{language=[Sharp]C, frame=lr, rulecolor=\color{blue!80!black}}
+
 \addbibresource{Bib.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
@@ -167,6 +169,8 @@ ToDo.    \ldots
 \listoffigures % Prints the list of figures
 
 \listoftables % Prints the list of tables
+
+\lstlistoflistings
 
 %----------------------------------------------------------------------------------------
 %	ABBREVIATIONS
