@@ -19,6 +19,9 @@ to use TLA\textsuperscript{+}.  TLA\textsuperscript{+} has frequently updated
 tooling and an active community. To get started with TLA\textsuperscript{+}
 visit the ``Learning TLA\textsuperscript{+}'' website \parencite{LearningTLA}.
 
+ A TLA\textsuperscript{+} specification is a boolean expression defining all the valid 
+states the system my occupy. The TLA\textsuperscript{+} sttol
+
 \section{Programming Language (C\#)}
 
 CbyC suggests using the Ada SPARK programming language because it has native
@@ -32,8 +35,83 @@ for these short comings.
 \subsection{Code Contracts}
 
 CbyC program design is based on information flow expressed as code contracts 
-\parencite{CbyCMan}. C\# does not have native code contracts any more, but it
-is very simple to implement code contracts using standard C\# language features.
+\parencite{CbyCMan}. C\# does not have native code contracts any more \parencite{NoCodeContracts},
+but it is very simple to implement code contracts using standard C\# language features.
+
+Code contracts are an application of Hoare logic. Using Hoare logic
+we can show that a program correctly implements a specification if, given a set of 
+preconditions derived from the specification, the program never violates a set of
+post conditions derived from the specification. We use the Hoare triple to 
+represent the contract \parencite{BasisForProgramming}:
+
+\[
+	\{P\}Q\{R\}
+\]
+
+where:
+\begin{description}
+	\item [$P$] are the preconditions;
+	\item [$Q$] is the program;
+	\item [$R$] are the postconditions.
+\end{description}
+
+With some helper methods we can implement code contracts using standard C\# language
+features. We are modelling our code contracts on the Design by Contract design 
+\parencite{ObjectOrientedSoftwareConstruction}.
+
+Design by Contract has two specification levels:
+\begin{itemize}
+	\item method preconditions and postconditions;
+	\item class invariants.
+\end{itemize}
+
+Preconditions are a set of conditions that state what the method requires from 
+the client (code calling the method) in order to function correctly.
+
+Postconditions are a set of conditions that state what the method will ensure 
+happens at the end of it's execution.
+
+\lstset{style=sharpc, caption={Writing  code contracts using helper methods and classes.}}
+\begin{lstlisting}[frame=single]
+public int Method(...)
+{
+    //Preconditions
+    Require(/*Consition*/, "Message")
+        .Require(/*Consition*/, "Message");
+        
+    /// Method Code ...
+    
+    //Postconditions
+    Ensure(/*Consition*/, "Message")
+        .Ensure(/*Consition*/, "Message");
+
+    return result;
+}
+\end{lstlisting}
+
+Class invents are a set of conditions that will always be true after all 
+executions.
+
+\lstset{style=sharpc, caption={Writing  code contracts using helper methods and classes.}}
+\begin{lstlisting}[frame=single]
+public class Account
+{
+    ...
+
+    public int Method(...)
+    {
+        /// Method Code ...
+        ClassInvariant();
+        return result;
+    }
+    
+    private void ClassInvariant()
+    {
+        Invariant(/*Consition*/, "Message")
+            .Invariant(/*Consition*/, "Message");
+    }
+}
+\end{lstlisting}
 
 \subsection{Verification}
 Testing is usually the main method of verification and validation.  Unit testing
@@ -42,12 +120,24 @@ Unit testing is ineffective because most errors are interface errors, not intern
 errors in units. Unit testing is expensive because you have to build test 
 harnesses to test units in isolation \parencite{CbyCPraxis}.
 
-Instead of testing the unit correctness by unit testing we just want to verify 
-that the contracts are valid. When we know the contracts are valid we can 
-create tests that test the whole system.
+Instead of unit testing code to show correctness we just want to verify 
+that the contracts are not violated by the code are valid. When we know the 
+code never violates the contracts we only need to create tests that show 
+the different parts of the system function together.
 
-To verify that the contracts are valid we want to execute the code covered by the
-contract with all possible inputs. This is might not always be practical. 
-As an alternative we will use property based testing to exercise the code and show 
-correctness \parencite{QuickCheck} \parencite{Hamlet94randomtesting}. We will be
-using the FsCheck framework for our property based tests \parencite{FsCheck_home}.
+We can represent a program or section of a program as a mathematical function
+with all possible legal permutations of inputs seen as the function's domain and 
+the output of the program the function's range.
+
+It would be impractical to write unit tests that cover the complete input domain
+of the program. Instead we write tests that take random points on the input domain
+as input. We are not going to verify the outputs because if the outputs passes the 
+contracts we assume the outputs are valid. This will eliminate the oracle problem 
+\parencite{QuickCheck}.
+
+When we tests smaller sections of the program separately random testing 
+provides similar, adequate, code coverage as compared with determinisms testing
+\parencite{QuickCheck}\parencite{Hamlet94randomtesting}.
+
+We will be using FsCheck to create out property based tests. FsCheck is a .net 
+implementation of QuickCheck \parencite{FsCheck_home}. 

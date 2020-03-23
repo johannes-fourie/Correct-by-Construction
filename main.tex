@@ -46,8 +46,24 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{mathpazo} % Use the Palatino font by default
 \usepackage[inline]{enumitem}
 \usepackage[backend=bibtex,citestyle=numeric,style=numeric,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage{latexsym}
+\usepackage{amsmath,amssymb,trimclip,adjustbox}
+\usepackage{tlatex}
 
 \lstdefinestyle{sharpc}{language=[Sharp]C, frame=lr, rulecolor=\color{blue!80!black}}
+
+\lstdefinelanguage{TLA}{
+    morekeywords={MODULE, EXTENDS, THEOREM, VARIABLES },
+    sensitive=false, % keywords are not case-sensitive
+    morecomment=[l]{\*}, % l is for line comment
+    morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+    morestring=[b]" % defines that strings are enclosed in double quotes
+}
+
+\lstset{literate={-}{{-\allowbreak}}{1}}
+
+
+
 
 \addbibresource{Bib.bib} % The filename of the bibliography
 
