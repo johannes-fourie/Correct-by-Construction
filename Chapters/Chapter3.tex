@@ -4,11 +4,36 @@
 
 \label{Chapter_Applying_the_methodology} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-We have now described the process we are going to follow. In this chapter we
-describing the technique we are going to use the create the artifacts.
+We have now described the process we are going to follow. In this chapter, we describe 
+the technique we are going to use the create the artefacts.
 
-To create all the artifacts we need a mathematical specification language
-and a programming language.
+To create all the artefacts we need a mathematical specification language and a 
+programming language.
+
+\section{The system}
+As an explanation aid we are going to consider an asynchronous data transfer
+interface connecting a sender and receive.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{Figures/AsyncInterface.pdf}
+	\decoRule
+	\caption{Asynchronous data transmission interface.}
+	\label{fig:AsyncInterface}
+\end{figure}
+
+Data is sent on the \(value\) line, and the \(ready\) and \(acknowledge\) lines are
+used for synchronization. The sender puts a value on the \(value\) line. The 
+\(ready\) line is then switched (high to low, or low to high). When the receiver has
+read the value the \(acknowledge\) is switched (high to low, or low to high).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{Figures/AsyncInterface_send.pdf}
+	\decoRule
+	\caption{Asynchronous line transition states.}
+	\label{fig:AsyncInterface_send}
+\end{figure}
 
 \section{Mathematical Specification Language (TLA\textsuperscript{+})}
 
@@ -19,8 +44,62 @@ to use TLA\textsuperscript{+}.  TLA\textsuperscript{+} has frequently updated
 tooling and an active community. To get started with TLA\textsuperscript{+}
 visit the ``Learning TLA\textsuperscript{+}'' website \parencite{LearningTLA}.
 
- A TLA\textsuperscript{+} specification is a boolean expression defining all the valid 
-states the system my occupy. The TLA\textsuperscript{+} sttol
+Using TLA\textsuperscript{+} we specify a system as a set of possible behaviours 
+representing a correct execution of the system. We define a behaviour as a sequence
+of states. A state is defined as an assignment of values to variables \parencite{SpecifyingSystems}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{Figures/System_Specification.pdf}
+	\decoRule
+	\caption{System specification.}
+	\label{fig:SysSpec}
+\end{figure}
+
+In listing \ref{code:AsynchInterfaceSpec} we show the complete TLA specification of the 
+asynchronous data interface. The TLA\textsuperscript{+} Toolbox can generate a 
+pretty version as shown in figure \ref{fig:PDFCode}
+
+The specification formula, \( Init \land \Box\left[ Next \right]_{\langle value, ready, acknowledge \rangle} \),
+states that the initial state \(Init\) must be true at the start and that all 
+subsequent states must be states specified in \(Next\).
+
+\begin{lstlisting}[language = TLA, literate={-}{{-\allowbreak}}{1}, caption={Asynchronous data interface specification.}, captionpos=b, label={code:AsynchInterfaceSpec}]
+--------------- MODULE AsynchInterface ---------------
+EXTENDS Naturals
+CONSTANTS Data
+VARIABLES value, ready, acknowledge
+TypeInvariant == /\ value \in Data
+                 /\ ready \in {0,1}
+                 /\ acknowledge \in {0,1}             
+------------------------------------------------------
+Init == /\ value \in Data
+        /\ ready \in {0,1}
+        /\ acknowledge = ready
+        
+Send == /\ ready = acknowledge
+        /\ value' \in Data
+        /\ ready' = 1 - ready
+        /\ UNCHANGED acknowledge
+        
+Receive == /\ ready /= acknowledge
+           /\ acknowledge' = 1 - acknowledge
+           /\ UNCHANGED <<value, ready>>
+              
+Next == Send \/ Receive
+Spec == Init /\ [][Next]_<<value, ready, acknowledge>>
+------------------------------------------------------
+THEOREM Spec => []TypeInvariant
+======================================================
+\end{lstlisting}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{AsynchInterface_Code.png}
+	\decoRule
+	\caption{PDF code.}
+	\label{fig:PDFCode}
+\end{figure}
 
 \section{Programming Language (C\#)}
 
@@ -50,9 +129,9 @@ represent the contract \parencite{BasisForProgramming}:
 
 where:
 \begin{description}
-	\item [$P$] are the preconditions;
-	\item [$Q$] is the program;
-	\item [$R$] are the postconditions.
+	\item [\(P\)] are the preconditions;
+	\item [\(Q\)] is the program;
+	\item [\(R\)] are the postconditions.
 \end{description}
 
 With some helper methods we can implement code contracts using standard C\# language

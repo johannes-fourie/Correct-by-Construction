@@ -53,7 +53,7 @@ headsepline, % Uncomment to get a line under the header
 \lstdefinestyle{sharpc}{language=[Sharp]C, frame=lr, rulecolor=\color{blue!80!black}}
 
 \lstdefinelanguage{TLA}{
-    morekeywords={MODULE, EXTENDS, THEOREM, VARIABLES },
+    morekeywords={MODULE, EXTENDS, THEOREM, VARIABLES, CONSTANTS, UNCHANGED, \in},
     sensitive=false, % keywords are not case-sensitive
     morecomment=[l]{\*}, % l is for line comment
     morecomment=[s]{/*}{*/}, % s is for start and end delimiter
@@ -61,9 +61,6 @@ headsepline, % Uncomment to get a line under the header
 }
 
 \lstset{literate={-}{{-\allowbreak}}{1}}
-
-
-
 
 \addbibresource{Bib.bib} % The filename of the bibliography
 
