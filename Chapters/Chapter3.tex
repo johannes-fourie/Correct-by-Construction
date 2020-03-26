@@ -10,31 +10,6 @@ the technique we are going to use the create the artefacts.
 To create all the artefacts we need a mathematical specification language and a 
 programming language.
 
-\section{The system}
-As an explanation aid we are going to consider an asynchronous data transfer
-interface connecting a sender and receive.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.75]{Figures/AsyncInterface.pdf}
-	\decoRule
-	\caption{Asynchronous data transmission interface.}
-	\label{fig:AsyncInterface}
-\end{figure}
-
-Data is sent on the \(value\) line, and the \(ready\) and \(acknowledge\) lines are
-used for synchronization. The sender puts a value on the \(value\) line. The 
-\(ready\) line is then switched (high to low, or low to high). When the receiver has
-read the value the \(acknowledge\) is switched (high to low, or low to high).
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.75]{Figures/AsyncInterface_send.pdf}
-	\decoRule
-	\caption{Asynchronous line transition states.}
-	\label{fig:AsyncInterface_send}
-\end{figure}
-
 \section{Mathematical Specification Language (TLA\textsuperscript{+})}
 
 The Formal Specification and Formal Design has to be written in a formal
@@ -56,15 +31,32 @@ of states. A state is defined as an assignment of values to variables \parencite
 	\label{fig:SysSpec}
 \end{figure}
 
+\subsection{Writing a specification}
+
 In listing \ref{code:AsynchInterfaceSpec} we show the complete TLA specification of the 
-asynchronous data interface. The TLA\textsuperscript{+} Toolbox can generate a 
+asynchronous data interface as described in appendix \ref{AppendixA}. The TLA\textsuperscript{+} Toolbox can generate a 
 pretty version as shown in figure \ref{fig:PDFCode}
 
 The specification formula, \( Init \land \Box\left[ Next \right]_{\langle value, ready, acknowledge \rangle} \),
 states that the initial state \(Init\) must be true at the start and that all 
-subsequent states must be states specified in \(Next\).
+subsequent states must be states specified by \(Next\).
 
-\begin{lstlisting}[language = TLA, literate={-}{{-\allowbreak}}{1}, caption={Asynchronous data interface specification.}, captionpos=b, label={code:AsynchInterfaceSpec}]
+The valid behaviours are defined by the \(Next\) formula. It is split into \(Send\) and \(Receive\) states.
+
+TLA\textsuperscript{+} is an untyped language. Type correctness is checked by creating an invariant, 
+\(TypeInvariant\), defining valid values for each variable \parencite{SpecifyingSystems}.
+
+\(EXTENDS \ Naturals\) imports the \(Naturals\) standard module. The \( Naturals\) module defines the set of natural
+numbers and operator like \(+, -, \dots\) \parencite{ModelCheckingTLASpecifications}.
+
+\(CONSTANTS\  Data\) declares that \(Data\) is a constant. We define the values in the 
+\(Data\) set when setting up the model checker.
+
+\( VARIABLES \ value, ready, acknowledge\) declares that \(value\), \(ready\), and \(acknowledge\) are variables.
+
+\vspace{5mm} %5mm vertical space
+
+\begin{lstlisting}[frame=single, language = TLA, literate={-}{{-\allowbreak}}{1}, caption={Asynchronous data interface specification.}, captionpos=b, label={code:AsynchInterfaceSpec}]
 --------------- MODULE AsynchInterface ---------------
 EXTENDS Naturals
 CONSTANTS Data
@@ -100,6 +92,15 @@ THEOREM Spec => []TypeInvariant
 	\caption{PDF code.}
 	\label{fig:PDFCode}
 \end{figure}
+
+\subsection{Evaluating a specification}
+We evaluate a specification using the TLC model checker. The model checker is available as part of the 
+TLA Toolbox \parencite{The_TLA_Toolbox}.
+
+TLC explores reachable states, looking for a state in which an invariant is not satisfied or
+deadlock occurs. Deadlock happens when there is no possible next state. TLC stops 
+when it has examined all states reachable by traces that contains only states
+satisfying the mode constraints \parencite{ModelCheckingTLASpecifications}.
 
 \section{Programming Language (C\#)}
 
@@ -150,73 +151,76 @@ the client (code calling the method) in order to function correctly.
 Postconditions are a set of conditions that state what the method will ensure 
 happens at the end of it's execution.
 
-\lstset{style=sharpc, caption={Writing  code contracts using helper methods and classes.}}
-\begin{lstlisting}[frame=single]
-public int Method(...)
-{
-    //Preconditions
-    Require(/*Consition*/, "Message")
-        .Require(/*Consition*/, "Message");
-        
-    /// Method Code ...
-    
-    //Postconditions
-    Ensure(/*Consition*/, "Message")
-        .Ensure(/*Consition*/, "Message");
+Class invents are a set of conditions that will always be true after any 
+execution. 
 
-    return result;
-}
-\end{lstlisting}
+The action to be performed when a contract fails depends on what you want. There 
+are two possible actions, either throw an exception causing the program to stop or
+log a message that you can use for debugging.
 
-Class invents are a set of conditions that will always be true after all 
-executions.
+\vspace{5mm} %5mm vertical space
 
-\lstset{style=sharpc, caption={Writing  code contracts using helper methods and classes.}}
+\lstset{style=sharpc, captionpos=b, caption={Writing code contracts using helper methods.}}
 \begin{lstlisting}[frame=single]
 public class Account
 {
-    ...
-
-    public int Method(...)
+    private int _limit;
+    public int Limit
     {
-        /// Method Code ...
-        ClassInvariant();
-        return result;
+        get => _limit;
+        set
+        {
+            Require(value > 0, "Limit must not be 0.");
+            _limit = value;
+            ClassInvariant();
+        }
     }
-    
+
+    public int Total { get; private set; }
+
+    public int Add(int value, int discount)
+    {
+        Require(value >= 0, "Value must be positive.")
+        .Require(
+            discount >= 0 && discount <= 50, 
+            "Discount must be positive and not more than 50%");
+        var old = new { Total };
+
+        // method logic
+
+        Ensure(Total > old.Total, "The total will not decrease.");
+        ClassInvariant();
+        return discountedValue;
+    }
+
     private void ClassInvariant()
     {
-        Invariant(/*Consition*/, "Message")
-            .Invariant(/*Consition*/, "Message");
+        Invariant(Total >= 0, "The total will not be negative.")
+        .Invariant(Limit > 0, "Limit will not be 0.");
     }
 }
 \end{lstlisting}
 
 \subsection{Verification}
-Testing is usually the main method of verification and validation.  Unit testing
-is inefficient because unit testing is ineffective and expensive. 
-Unit testing is ineffective because most errors are interface errors, not internal
-errors in units. Unit testing is expensive because you have to build test 
-harnesses to test units in isolation \parencite{CbyCPraxis}.
 
-Instead of unit testing code to show correctness we just want to verify 
-that the contracts are not violated by the code are valid. When we know the 
-code never violates the contracts we only need to create tests that show 
-the different parts of the system function together.
+Using unit testing to verify code correct is not always effective. The code contracts 
+encode the specification, we there for only have to show that the code we wrote 
+does not breach the contract to verify the code.
 
-We can represent a program or section of a program as a mathematical function
-with all possible legal permutations of inputs seen as the function's domain and 
-the output of the program the function's range.
+We can represent a program or section of a program, unit, as a mathematical function
+(\(f\)). All possible legal permutations of inputs are the function's domain (\(I\)) and 
+the outputs are the function's range (\(O\)).
 
-It would be impractical to write unit tests that cover the complete input domain
-of the program. Instead we write tests that take random points on the input domain
-as input. We are not going to verify the outputs because if the outputs passes the 
-contracts we assume the outputs are valid. This will eliminate the oracle problem 
-\parencite{QuickCheck}.
+\[ f: I \rightarrow O \]
 
-When we tests smaller sections of the program separately random testing 
-provides similar, adequate, code coverage as compared with determinisms testing
-\parencite{QuickCheck}\parencite{Hamlet94randomtesting}.
+It would be impractical to write unit tests that cover the complete domain
+of a unit. Instead we randomly select inputs from the domain. When we tests smaller
+units, random testing is adequate. We are not going to verify the outputs because,
+if the outputs adhere to the contracts we assume the outputs are valid. This will 
+eliminate the oracle problem \parencite{QuickCheck}\parencite{Hamlet94randomtesting}.
 
-We will be using FsCheck to create out property based tests. FsCheck is a .net 
-implementation of QuickCheck \parencite{FsCheck_home}. 
+We will be using FsCheck to select the random inputs. FsCheck is a .net implementation
+of QuickCheck \parencite{FsCheck_home}. We use the xUnit framework to write the tests.
+
+
+

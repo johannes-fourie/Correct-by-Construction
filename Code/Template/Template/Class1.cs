@@ -2,10 +2,6 @@
 
 namespace Template
 {
-    public class Contract
-    {
-    }
-
     public class Account
     {
         private int _limit;
@@ -19,13 +15,15 @@ namespace Template
                 ClassInvariant();
             }
         }
+
         public int Total { get; private set; }
+
         public int Add(int value, int discount)
         {
             Require(value >= 0, "Value must be positive.")
-                .Require(
-                    discount >= 0 && discount <= 50, 
-                    "Discount must be positive and not more than 50%");
+            .Require(
+                discount >= 0 && discount <= 50, 
+                "Discount must be positive and not more than 50%");
             var old = new { Total };
 
             // method logic
@@ -34,10 +32,11 @@ namespace Template
             ClassInvariant();
             return discountedValue;
         }
+
         private void ClassInvariant()
         {
             Invariant(Total >= 0, "The total will not be negative.")
-                .Invariant(Limit > 0, "Limit will not be 0.");
+            .Invariant(Limit > 0, "Limit will not be 0.");
         }
     }
 }
