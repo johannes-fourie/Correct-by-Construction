@@ -3,7 +3,6 @@ using System.Runtime.CompilerServices;
 
 namespace CodeContract
 {
-
     public static class Contract
     {
         public static Requirer Require(bool condition, string message)

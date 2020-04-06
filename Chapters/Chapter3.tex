@@ -99,14 +99,14 @@ TLA Toolbox \parencite{The_TLA_Toolbox}.
 
 TLC explores reachable states, looking for a state in which an invariant is not satisfied or
 deadlock occurs. Deadlock happens when there is no possible next state. TLC stops 
-when it has examined all states reachable by traces that contains only states
+when it has examined all states reachable by traces that contain only states
 satisfying the mode constraints \parencite{ModelCheckingTLASpecifications}.
 
 \section{Programming Language (C\#)}
 
 CbyC suggests using the Ada SPARK programming language because it has native
 support for code contracts and can verify the code using static analysis \parencite{CbyCPraxis}.
-Very little line of business software is built using Ada. To make this more relevant 
+Very little line-of-business software is built using Ada. To make this more relevant 
 to the my work I decided to use C\#. The problem with C\# is that is has no native
 support for code contracts and also does not have sufficient static analysis tools 
 capable of verifying code correct. This means that we will have to find workarounds
@@ -215,12 +215,105 @@ the outputs are the function's range (\(O\)).
 
 It would be impractical to write unit tests that cover the complete domain
 of a unit. Instead we randomly select inputs from the domain. When we tests smaller
-units, random testing is adequate. We are not going to verify the outputs because,
+units, random testing is adequate \parencite{Hamlet94randomtesting}.
+We are not going to verify the outputs because,
 if the outputs adhere to the contracts we assume the outputs are valid. This will 
 eliminate the oracle problem \parencite{QuickCheck}\parencite{Hamlet94randomtesting}.
 
 We will be using FsCheck to select the random inputs. FsCheck is a .net implementation
-of QuickCheck \parencite{FsCheck_home}. We use the xUnit framework to write the tests.
+of QuickCheck \parencite{FsCheck_home}. We use the xUnit test framework to make
+writing the test more convenient.
 
+The tests have two parts, the input generators and tests action. We first look at the generators.
+We group the test inputs using tuples. The generator code filters the generated value according
+to the contracts.
 
+\vspace{5mm} %5mm vertical space
 
+\lstset{style=sharpc, captionpos=b, caption={FsCheck generators.}}
+\begin{lstlisting}[frame=single]
+public static class Arbitraries
+{
+    public static Arbitrary<(decimal limit, decimal total)> ...
+        ... AccountGenerator()
+    {
+        return (
+            from limit in Arb.Default.Decimal()
+                            .Convert(
+                                limit => limit.Round(), 
+                                limit => limit)
+                            .Filter(limit => limit > 0)
+                            .Generator
+            from total in Arb.Default.Decimal()
+                            .Convert(
+                                total => total.Round(), 
+                                total => total)
+                            .Filter(total => total > 0)
+                            .Generator
+            where total < limit
+            select (limit, total))
+        .ToArbitrary();
+    }
+
+    public static Arbitrary<(decimal value, decimal discount)> ...
+        ... AccountAddGenerator()
+    {
+        return (
+            from value in Arb.Default.Decimal()
+                            .Convert(
+                                value => value.Round(),
+                                value => value)
+                            .Filter(value => value >= 0)
+                            .Generator
+            from discount in Arb.Default.Decimal()
+                            .Convert(
+                                discount => discount.Round(), 
+                                discount => discount)
+                            .Filter(discount => 
+                                discount >= 0 && discount <= 50)
+                            .Generator
+            select (value, discount))
+        .ToArbitrary();
+    }
+}
+\end{lstlisting}
+
+ We then use the random inputs to set up a test account and then add a value.
+We do not assert anything after the test because we just want to show that the contracts are not 
+violated. 
+
+\vspace{5mm} %5mm vertical space
+
+\lstset{style=sharpc, captionpos=b, caption={FsCheck property.}}
+\begin{lstlisting}[frame=single]
+[Property(Arbitrary = new[] { typeof(Arbitraries) }, Verbose = true)]
+public void AddProperty(
+    (decimal limit, decimal total) accountSetup,
+    (decimal value, decimal discount) accountAdd)
+{
+    // ARRANGE
+    var account = new Account(accountSetup.total, accountSetup.limit);
+
+    // ACT
+    account.Add(accountAdd.value, accountAdd.discount);
+}
+\end{lstlisting}
+
+\vspace{5mm} %5mm vertical space
+
+\lstset{captionpos=b, caption={Generated FsCheck test data.}}
+\begin{lstlisting}[frame=single]
+0:
+((0.73063M, 0.21486M), (0.92590M, 0.35410M))
+
+1:
+((0.59390M, 0.55137M), (0.72667M, 0.19132M))
+
+...
+
+98:
+((20.83859M, 15.16400M), (42.22400M, 26.75752M))
+
+99:
+((48.77803M, 20.94168M), (29.58231M, 2.28041M))
+\end{lstlisting}
